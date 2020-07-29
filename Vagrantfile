@@ -34,8 +34,8 @@ Vagrant.configure(2) do |config|
       server.vm.hostname = "server-01"
       server.vm.provision "shell", path: "scripts/configure_rancher_server.sh", args: [x.fetch('admin_password'), x.fetch('version'), x.fetch('k8s_version')]
       server.vm.provision "install-kubectl", type: "shell", :path => "scripts/install-kubectl.sh"
-      server.vm.provision "install-rke", type: "shell", :path => "scripts/install-rke.sh"
-      server.vm.provision "install-helm3", type: "shell", :path => "scripts/install-helm.sh"
+      #server.vm.provision "install-rke", type: "shell", :path => "scripts/install-rke.sh"
+      #server.vm.provision "install-helm3", type: "shell", :path => "scripts/install-helm.sh"
       server.vm.provision "setup-hosts", :type => "shell", :path => "scripts/setup-hosts.sh" do |s|
           s.args = ["eth1"]
         end
